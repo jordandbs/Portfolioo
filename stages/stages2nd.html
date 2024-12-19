@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <title>Stage Netatmo</title>
+    <link rel="stylesheet" href="stylesstage.css">
+</head>
+<body>
+
+    <div id="lang-select">
+        <button id="lang-fr"><img src="../images/langue-img/FR.png" alt="FR"></button>
+        <button id="lang-en"><img src="../images/langue-img/UK.png" alt="EN"></button>
+    </div>
+
+    <div class="btnretour">
+        <a href="../index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 100 100" style="cursor: pointer;">
+                <!-- Cercle ajusté -->
+                <circle cx="50" cy="50" r="35" stroke="black" stroke-width="2" fill="none"
+                    stroke-dasharray="219.8" stroke-dashoffset="219.8"
+                    style="transition: stroke-dashoffset 1s ease;" />
+                
+                <line x1="65" y1="50" x2="35" y2="50" stroke="black" stroke-width="3" stroke-linecap="round" />
+                <line x1="45" y1="40" x2="35" y2="50" stroke="black" stroke-width="3" stroke-linecap="round" />
+                <line x1="45" y1="60" x2="35" y2="50" stroke="black" stroke-width="3" stroke-linecap="round" />
+                
+                <style>
+                    svg circle {
+                        stroke-dashoffset: 219.8;
+                    }
+                    svg:hover circle {
+                        stroke-dashoffset: 0;
+                    }
+                </style>
+            </svg>
+        </a>            
+    </div>
+
+    <div class="stages">
+        <h1 data-lang-fr="Ce stage sera réalisé du 13 janvier 2025 au 28 février 2025..." data-lang-en="This intership will run from 13 January 2025 to 28 February 2025...">Ce stage sera réalisé du 13 janvier 2025 au 28 février 2025...</h1>
+    </div>  
+
+    <div class="theme-toggle">
+        <button id="theme-btn">
+            <span class="sun-icon">&#x2600;</span> <!-- Icône du soleil -->
+            <span class="moon-icon">&#x1F319;</span> <!-- Icône de la lune -->
+        </button>
+    </div>
+
+    <script>
+        const themeBtn = document.getElementById('theme-btn');
+        const body = document.body;
+    
+        // Vérifie et applique le mode de thème au chargement de la page
+        if(localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-theme');
+        } else {
+            body.classList.add('light-theme');
+        }
+    
+        // Ajoute un événement de clic au bouton
+        themeBtn.addEventListener('click', () => {
+            // Basculer entre les classes light et dark
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark'); // Sauvegarde le mode actuel
+            } else {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                localStorage.setItem('theme', 'light'); // Sauvegarde le mode actuel
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('lang-fr').addEventListener('click', function () {
+            changeLanguage('fr');
+        });
+    
+        document.getElementById('lang-en').addEventListener('click', function () {
+            changeLanguage('en');
+        });
+    
+        function changeLanguage(lang) {
+            if (lang === 'en') {
+                document.querySelectorAll('[data-lang-fr]').forEach(element => {
+                    element.textContent = element.getAttribute('data-lang-en');
+                });
+            } else if (lang === 'fr') {
+                document.querySelectorAll('[data-lang-en]').forEach(element => {
+                    element.textContent = element.getAttribute('data-lang-fr');
+                });
+            }
+        }
+    </script>        
+</body>
+</html>

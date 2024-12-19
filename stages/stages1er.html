@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Stage</title>
+    <link rel="stylesheet" href="stylesstage.css">
+
+</head>
+
+<body>
+
+    <section class="section" id="stages">
+        <h2 data-lang-fr="Mes Stages" data-lang-en="My Internship">Mes Stages</h2>
+
+        <div class="stage">
+
+
+            <div class="stage-item">
+                <button id="openModal" class="btn">
+
+                    <img src="../images/stages-img/Legrand.jpg" alt="Legrand">
+                    <div class="stage-data">
+                        <h3 data-lang-fr="Stage de 1ère année de BTS SIO" data-lang-en="1st year internship of BTS SIO">
+                            Stage de 1ère année de BTS SIO</h3>
+                        <p data-lang-fr="Stage effectué à Legrand Limoges en tant que interface qualitée marché."
+                            data-lang-en="Work placement at Legrand Limoges as market quality interface.">Stage effectué
+                            à Legrand Limoges en tant que interface qualitée marché.</p>
+                </button>
+            </div>
+
+
+
+
+            <div class="stage-item">
+                <button id="openModal" class="btn">
+
+                    <img src="../images/stages-img/netatmo.png" alt="Netatmo">
+                    <div class="stage-data">
+                        <h3 data-lang-fr="Stage de 2ème année de BTS SIO" data-lang-en="2nd year internship of BTS SIO">
+                            Stage de 2ème année de BTS SIO</h3>
+                        <p data-lang-fr="Stage effectué à Netatmo Paris en tant que interface qualitée marché"
+                            data-lang-en="Work placement at Netatmo Paris as market quality interface">Stage effectué à
+                            Netatmo Paris en tant que interface qualitée marché.</p>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <div id="modalStage" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="logo">
+                <img src="/images/stages-img/legrandsansfond.png" alt="Legrand Logo"
+                    style="max-width: 100%; height: auto;">
+            </div>
+
+            <div class="tableau">
+                <table>
+                    <tr>
+                        <th>Période du stage</th>
+                        <td>27 mai au 28 juin 2024 (5 semaines)</td>
+                    </tr>
+                    <tr>
+                        <th>Mission</th>
+                        <td>Faire un tableau de bord à l'aide de Power BI.<br>Lier une base de données Excel et
+                            Salesforce.</td>
+                    </tr>
+                    <tr>
+                        <th>Adresse</th>
+                        <td>128 Av. du Maréchal de Lattre-de-Tassigny - Limoges</td>
+                    </tr>
+                    <tr>
+                        <th>Logiciels utilisés</th>
+                        <td>
+                            <ul>
+                                <li>Excel</li>
+                                <li>Salesforce</li>
+                                <li>Power BI</li>
+                                <li><strong>Mettre les logos</strong></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="btnsite">
+                <a href="../stage_bts_sio_1_de_jordan_desbordes.pdf" class="btn" target="_blank">Voir le stage
+                    complet</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Obtenez les éléments du DOM
+        const modal = document.getElementById('modalStage');
+        const btnOpen = document.getElementById('openModal');
+        const btnClose = document.getElementById('closeModal');
+
+        // Ouvrir le modal
+        btnOpen.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        // Fermer le modal
+        btnClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Fermer le modal en cliquant à l'extérieur du contenu
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
