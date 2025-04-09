@@ -3,6 +3,7 @@
     --blanc: #fff;
     --rouge: #bc1823;
     --bleu: #0d1b2a;
+    --bleuClair: #61dafb;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -24,6 +25,29 @@ h2 {
     margin-top: 80px; 
     font-size: 2em;
     text-decoration: underline;
+}
+
+
+/*SCROLL*/
+
+
+.scroll {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.section {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 
@@ -57,7 +81,7 @@ nav {
 }
 
 .navbar a:hover, .navbar a.active {
-    color: #61dafb;
+    color: var(--bleuClair);
 }
 
 .navbar a::after {
@@ -67,7 +91,7 @@ nav {
     bottom: 0;
     width: 100%;
     height: 2px;
-    background-color: #61dafb;
+    background-color: var(--bleuClair);
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
@@ -111,7 +135,7 @@ body.light-theme a {
 
 body.light-theme a:hover, 
 body.light-theme a.active {
-    color: #61dafb;
+    color: var(--bleuClair);
 }
 
 body.dark-theme{
@@ -143,14 +167,18 @@ body.custom-theme a.active {
 }
 
 body.custom-theme #home {
-    background-color: #ff99c8;
-}
-
-body.custom-theme #competences {
     background-color: #fcf6bd;
 }
 
+body.custom-theme #competences {
+    background-color: #a9def9;
+}
+
 body.custom-theme #projets {
+    background-color: #ff99c8;
+}
+
+body.custom-theme #stages {
     background-color: #d0f4de;
 }
 
@@ -164,29 +192,6 @@ body.custom-theme #contact {
 
 body.dark-theme #contact {
     color: black;
-}
-
-
-/*SCROLL*/
-
-
-.scroll {
-    scroll-snap-type: y mandatory;
-    height: 100vh;
-    overflow-y: scroll;
-}
-
-.scroll::-webkit-scrollbar {
-    display: none;
-}
-
-.section {
-    scroll-snap-align: start;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
 }
 
 
@@ -236,7 +241,7 @@ header p {
 }
 
 .social-links a:hover {
-    color: #61dafb;
+    color: var(--bleuClair);
 }
 
 .social-links a:hover {
@@ -250,7 +255,7 @@ header p {
 }
 
 .social-links a:hover svg {
-    fill: #61dafb; 
+    fill: var(--bleuClair); 
 }
 
 
@@ -456,7 +461,7 @@ svg circle:nth-child(2) {
   .portfolio__item::after {
     content: '';
     inset: 0;
-    background: linear-gradient(180deg, transparent,  #61dafb); /* Dégradé de couleur */
+    background: linear-gradient(180deg, transparent,  var(--bleuClair)); /* Dégradé de couleur */
     opacity: 0;
   }
   
@@ -786,7 +791,7 @@ tr:last-child td {
     background-color: #0056b3;
 }
 
-
+    
 /*CONTACT*/
 
 
