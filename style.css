@@ -27,6 +27,10 @@ h2 {
     text-decoration: underline;
 }
 
+a, p {
+    font-size: 20px;
+   
+}
 
 /*SCROLL*/
 
@@ -331,37 +335,37 @@ svg circle:nth-child(2) {
     }
 }
 
-@keyframes circle-react {
+@keyframes circle-php{
     to {
         stroke-dashoffset: 66; /* 85% */
     }
 }
 
-@keyframes circle-nodejs {
+@keyframes circle-flutter {
     to {
-        stroke-dashoffset: 250; /* 40% */
+        stroke-dashoffset: 140; /* 70% */
     }
 }
 
 @keyframes circle-python {
     to {
-        stroke-dashoffset: 110; /* 75% */
+        stroke-dashoffset: 66; /* 85% */
     }
 }
 
-@keyframes circle-sql {
+@keyframes circle-java {
     to {
         stroke-dashoffset: 176; /* 60% */
     }
 }
 
-@keyframes circle-git {
+@keyframes circle-csharp {
     to {
-        stroke-dashoffset: 66; /* 85% */
+        stroke-dashoffset: 260; /* 30% */
     }
 }
 
-@keyframes circle-docker {
+@keyframes circle-symfony {
     to {
         stroke-dashoffset: 110; /* 75% */
     }
@@ -469,6 +473,7 @@ svg circle:nth-child(2) {
     width: 100%;
     vertical-align: middle;
     transition: all 1s cubic-bezier(0.05, 0.2, 0.1, 1); /* Transition */
+    filter: brightness(0.8)
   }
   
   .portfolio__data {
@@ -480,7 +485,7 @@ svg circle:nth-child(2) {
   
   .portfolio__subtitle,
   .portfolio__description {
-    color: #000000; /* Couleur du titre */
+    color: #ffffff; /* Couleur du titre */
     opacity: 0.7;
     font-size: 20px;
   }
@@ -734,6 +739,14 @@ tr:last-child td {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+.flip-card-front img,
+.flip-card-front svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 10;
+}
+
 .flip-card-back {
     display: flex;
     flex-direction: column;
@@ -874,4 +887,52 @@ tr:last-child td {
 
 #lang-select button:hover {
     background-color: #ddd;
-} 
+}
+
+.project-detail {
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center;      /* Centrage vertical */
+    height: 100vh;            /* Prend toute la hauteur de l'écran */
+    padding: 40px;
+    gap: 60px;                /* Espace entre colonne gauche et vidéo */
+    flex-wrap: wrap;          /* Pour s'adapter aux petits écrans */
+    box-sizing: border-box;
+}
+
+.project-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px; /* Tu peux ajuster */
+}
+
+.project-link {
+    font-size: 18px;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 2px solid black;
+    background-color: transparent;
+    transition: 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--blanc);
+    background-color: black;
+}
+
+.tech-icons img {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.project-video video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
