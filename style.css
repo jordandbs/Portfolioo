@@ -752,7 +752,7 @@ tr:last-child td {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.7); /* Arrière-plan légèrement transparent pour le texte */
+    background-color: rgba(255, 255, 255, 0.7); 
     transform: rotateY(180deg);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -767,8 +767,8 @@ tr:last-child td {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Utilise la même image que sur la face */
-    filter: blur(10px); /* Applique un flou à l'image à l'arrière */
+    object-fit: cover; 
+    filter: blur(10px); 
     z-index: -1;
 }
 
@@ -804,7 +804,7 @@ tr:last-child td {
     background-color: #0056b3;
 }
 
-    
+
 /*CONTACT*/
 
 
@@ -891,12 +891,12 @@ tr:last-child td {
 
 .project-detail {
     display: flex;
-    justify-content: center; /* Centrage horizontal */
-    align-items: center;      /* Centrage vertical */
-    height: 100vh;            /* Prend toute la hauteur de l'écran */
+    justify-content: center; 
+    align-items: center;      
+    height: 100vh;            
     padding: 40px;
-    gap: 60px;                /* Espace entre colonne gauche et vidéo */
-    flex-wrap: wrap;          /* Pour s'adapter aux petits écrans */
+    gap: 60px;               
+    flex-wrap: wrap;          
     box-sizing: border-box;
 }
 
@@ -905,11 +905,11 @@ tr:last-child td {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    max-width: 500px; /* Tu peux ajuster */
+    max-width: 500px; 
 }
 
 .project-link {
-    font-size: 18px;
+    font-size: 25px;
     text-decoration: none;
     color: white;
     padding: 10px 20px;
@@ -925,14 +925,57 @@ tr:last-child td {
 }
 
 .tech-icons img {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     margin: 5px;
 }
 
-.project-video video {
+.titreprojet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px; 
+  }
+  
+  .titreprojet h1 {
+    font-size: 3em; 
+  }
+  
+  .descriptiondesprojets {
+    text-align: center;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .descriptiondesprojets p {
+    font-size: 1.5em;
+    line-height: 1.5em;
+  }
+  
+
+.project-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     max-width: 600px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .project-image img {
+    width: 900px;
+    height: auto;
+    max-height: 700px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+    object-fit:contain;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); 
+    
+  }
+
+  .ligne-separatrice {
+    width: 2px;
+    background-color: #ccc;
+    height: 700px;
+  }
