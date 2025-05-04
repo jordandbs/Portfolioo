@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Desbordes Jordan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Portfolio/style.css">
+</head>
+
+<body class="dark-theme">
+    <nav>
+        <ul class="navbar">
+            <li><a href="/Portfolio/Portfolio/index.html" data-lang-fr="Accueil" data-lang-en="Home">Accueil</a></li>
+        </ul>
+    </nav>
+
+    <div class="titreprojet"><h1>Resto</h1></div>
+
+    <div id="lang-select">
+        <button id="lang-fr"><img src="../Portfolio/images/langue-img/FR.png" alt="FR"></button>
+        <button id="lang-en"><img src="../Portfolio/images/langue-img/UK.png" alt="EN"></button>
+    </div>
+
+    <div id="theme-select">
+        <label for="themes" data-lang-fr="Choisir un thème :" data-lang-en="Choose a theme :">Choisir un thème :</label>
+        <select id="themes">
+            <option value="dark-theme" data-lang-fr="Sombre" data-lang-en="Dark">Sombre</option>
+            <option value="light-theme" data-lang-fr="Clair" data-lang-en="Light">Clair</option>
+            <option value="custom-theme">Pastel</option>
+        </select>
+    </div>
+
+    <div class="scroll" id="scroll">
+
+        <div class="project-detail">
+            <div class="project-left">
+              <a href="https://github.com/jordandbs/Resto" target="_blank" class="project-link">
+                Git du Projet
+              </a>
+              <a href="https://github.com/jordandbs/Congres" target="_blank" class="project-link">
+                Doc Technique
+              </a>
+              <div class="tech-icons">
+                <img src="/Portfolio/Portfolio/images/projet-icon/html-5-logo-svgrepo-com.svg" alt="HTML">
+                <img src="/Portfolio/Portfolio/images/projet-icon/css-3-svgrepo-com.svg" alt="CSS">
+                <img src="/Portfolio/Portfolio/images/projet-icon/js-svgrepo-com.svg" alt="JavaScript">
+              </div>
+          
+              <div class="descriptiondesprojets">
+                <p>Projet réalisé en première année de BTS SIO, représentant un site web pour un restaurant où l'on peut se connecter, liker des restaurants, mettre des commentaires et rechercher les restaurants selon certains critères. Il a été développé en utilisant le MVC </p>
+              </div>
+            </div>
+        
+            <div class="ligne-separatrice">
+            </div>
+          
+            <div class="project-image">
+              <img src="/Portfolio/Portfolio/images/projets-img/restoimg.jpeg" alt="Image du Projet">
+            </div>
+          </div>
+          
+
+
+<script>
+    // Sélectionne la section compétences
+    const competencesSection = document.getElementById('competences');
+
+    // Fonction pour déclencher les animations des compétences
+    function triggerAnimations() {
+        const competenceCircles = document.querySelectorAll('.competence svg circle:nth-child(2)');
+        competenceCircles.forEach(circle => {
+            const competenceClass = circle.closest('.competence').classList[1]; // Récupère la classe pour la compétence
+            circle.style.animation = `circle-${competenceClass} 3s forwards`;
+        });
+
+        // Animation du trait vertical
+        const traitVertical = document.querySelector('.trait-vertical');
+        traitVertical.style.animation = 'draw-line 4s ease-out forwards'; // Lance l'animation du trait
+
+        // Animation du CV et du bouton de téléchargement
+        const cvSection = document.querySelector('.cv-section');
+        cvSection.style.animation = 'fade-slide-in 4s ease-out forwards'; // Lance l'animation du CV et du bouton
+    }
+
+    // Utilisation de IntersectionObserver pour détecter quand la section devient visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                triggerAnimations();
+                observer.unobserve(competencesSection); // Arrête d'observer après avoir déclenché l'animation
+            }
+        });
+    }, { threshold: 0.5 }); // Le seuil (0.5) signifie que 50% de la section doit être visible pour déclencher l'animation
+
+    // Commence à observer la section compétences
+    observer.observe(competencesSection);
+</script>
+
+<script>
+    const themes = ['light-theme', 'dark-theme', 'custom-theme'];
+
+    document.getElementById('themes').addEventListener('change', function () {
+        const selectedTheme = this.value; // Récupère la valeur de l'option sélectionnée
+        changeTheme(selectedTheme); // Passe la valeur du thème sélectionné
+    });
+
+    function changeTheme(themeName) {
+        document.body.classList.remove(...themes);
+        document.body.classList.add(themeName);
+    }
+
+    // Gestion du défilement lisse
+    const scroll = document.getElementById('scroll');
+    scroll.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        scroll.scrollBy({
+            top: event.deltaY,
+            left: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Navigation fluide
+    document.querySelectorAll('.navbar a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetID = this.getAttribute('href');
+            document.querySelector(targetID).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<script>
+    document.getElementById('lang-fr').addEventListener('click', function () {
+        changeLanguage('fr');
+    });
+
+    document.getElementById('lang-en').addEventListener('click', function () {
+        changeLanguage('en');
+    });
+
+    function changeLanguage(lang) {
+        if (lang === 'en') {
+            document.querySelectorAll('[data-lang-fr]').forEach(element => {
+                element.textContent = element.getAttribute('data-lang-en');
+            });
+        } else if (lang === 'fr') {
+            document.querySelectorAll('[data-lang-en]').forEach(element => {
+                element.textContent = element.getAttribute('data-lang-fr');
+            });
+        }
+    }
+</script>
+</body>
+</html>
